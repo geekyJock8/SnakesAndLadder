@@ -1,3 +1,4 @@
+import ENGINE.Game;
 import GUI.MainWindow;
 
 /**
@@ -8,5 +9,7 @@ public class SnakesAndLadders
     public static void main(String args[])
     {
         MainWindow mainWindow = new MainWindow();
+        Game game = new Game();
+
     }
 }
