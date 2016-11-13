@@ -16,10 +16,10 @@ public class Player
     {
         switch(x)
         {
-            case 1: name = "GOLU";
+            case 1: name = "WHITE";
                     pieceColor = new Color(255,255,255);
                 break;
-            case 2: name = "MOLU";
+            case 2: name = "BLACK";
                     pieceColor = new Color(0, 0, 0);
                 break;
         }
