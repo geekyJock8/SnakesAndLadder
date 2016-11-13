@@ -180,6 +180,7 @@ public class MainWindow
 
             diceValue.setText("WON");
 
+
         }
     }
 
@@ -215,7 +216,7 @@ public class MainWindow
                 add(boardTiles[i]);
             }
 
-            validate();
+            revalidate();
             repaint();
         }
 
@@ -224,10 +225,12 @@ public class MainWindow
             removeAll();
 
             setBackground(new Color(0, 0, 0));
-            setForeground(new Color(255, 255, 255));
+            setForeground(new Color(255, 255, 255).brighter());
             JLabel gameEndMessage = new JLabel("GAME OVER");
-            gameEndMessage.setFont(new Font("Rage", Font.ITALIC, 25));
-            gameEndMessage.setPreferredSize(new Dimension(200, 200));
+            gameEndMessage.setFont(new Font("Rage", Font.ITALIC, 60));
+            gameEndMessage.setVerticalAlignment(SwingConstants.CENTER);
+            gameEndMessage.setHorizontalAlignment(SwingConstants.CENTER);
+            //gameEndMessage.setPreferredSize(new Dimension(200, 200));
 
             add(gameEndMessage, BorderLayout.CENTER);
         }
@@ -269,7 +272,7 @@ public class MainWindow
             BufferedImage img = null;
             try
             {
-                img = ImageIO.read(new File("img/snake/front/1.png"));
+                img = ImageIO.read(new File("img/snake/front/1.gif"));
             } catch (IOException e)
             {
                 e.printStackTrace();
@@ -288,7 +291,7 @@ public class MainWindow
             BufferedImage img = null;
             try
             {
-                img = ImageIO.read(new File("img/ladder/top/0.png"));
+                img = ImageIO.read(new File("img/ladder/top/1.gif"));
             } catch (IOException e)
             {
                 e.printStackTrace();
@@ -307,7 +310,7 @@ public class MainWindow
             BufferedImage img = null;
             try
             {
-                img = ImageIO.read(new File("img/ladder/bottom/0.png"));
+                img = ImageIO.read(new File("img/ladder/bottom/1.gif"));
             } catch (IOException e)
             {
                 e.printStackTrace();
@@ -326,7 +329,7 @@ public class MainWindow
             BufferedImage img = null;
             try
             {
-                img = ImageIO.read(new File("img/snake/back/1.png"));
+                img = ImageIO.read(new File("img/snake/back/1.gif"));
             } catch (IOException e)
             {
                 e.printStackTrace();
@@ -381,12 +384,13 @@ public class MainWindow
 
         public void drawTiles(Game game)
         {
+            removeAll();
             this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
             tileColor();
             printTileID();
 
             if(game.board.isSnakePresent(tileIndex))
-                drawSnakeHead();
+               drawSnakeHead();
             if(game.board.isLadderPresent(tileIndex))
                 drawLadder();
             if(game.board.isLadderTopPresent(tileIndex))
@@ -400,7 +404,7 @@ public class MainWindow
                     drawPlayers(i);
             }
 
-            validate();
+            revalidate();
             repaint();
         }
 
