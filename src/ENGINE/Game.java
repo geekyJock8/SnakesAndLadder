@@ -30,10 +30,11 @@ public class Game
         int playerId = chance % 2;
 
         if (p[playerId].isFirstChance())
-            if (diceValue == 6)
-            {
+        {
+            if (diceValue == 6) {
                 p[playerId].firstChanceOver();
             }
+        }
 
         else
             {
